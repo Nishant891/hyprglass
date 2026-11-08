@@ -1,0 +1,10 @@
+[Unit]
+Description=Local desktop AI
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=%h/.config/hypr/bin/hypr-glass ollama start
+Restart=on-failure
+RestartSec=3
+StandardOutput=journal
+StandardError=journal

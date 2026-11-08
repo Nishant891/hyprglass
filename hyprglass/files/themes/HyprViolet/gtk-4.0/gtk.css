@@ -1,0 +1,20 @@
+@import url("resource:///org/gtk/libgtk/theme/Default/gtk-dark.css");
+@define-color accent_color #d0bcff;
+@define-color accent_bg_color #4f378b;
+@define-color accent_fg_color #eaddff;
+@define-color window_bg_color #141218;
+@define-color window_fg_color #e6e0e9;
+@define-color view_bg_color #1d1b20;
+@define-color view_fg_color #e6e0e9;
+@define-color headerbar_bg_color #211f26;
+@define-color headerbar_fg_color #e6e0e9;
+@define-color sidebar_bg_color #211f26;
+@define-color sidebar_fg_color #e6e0e9;
+@define-color card_bg_color #2b2930;
+window, .nautilus-window { font-family: "Adwaita Sans", "Noto Sans"; }
+window.background { background: @window_bg_color; color: @window_fg_color; }
+headerbar { background: @headerbar_bg_color; color: @headerbar_fg_color; box-shadow: none; }
+.navigation-sidebar { background: @sidebar_bg_color; color: @sidebar_fg_color; }
+.navigation-sidebar row:selected { background: rgba(208,188,255,0.16); color: @accent_color; border-radius: 12px; }
+.nautilus-grid-view gridview child:selected, .nautilus-list-view listview row:selected { background: rgba(208,188,255,0.18); color: @window_fg_color; border-radius: 12px; }
+button.suggested-action { background: @accent_bg_color; color: @accent_fg_color; }

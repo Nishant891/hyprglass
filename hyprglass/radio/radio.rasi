@@ -1,0 +1,31 @@
+* {
+    font: "Adwaita Sans 12";
+    background-color: transparent;
+    text-color: #e6e0e9;
+    border-color: #49454f;
+    spacing: 6px;
+}
+window { width: 350px; background-color: #141218d1; border: 1px; border-radius: 24px; padding: 14px; }
+mainbox { children: [ inputbar, message, listview ]; }
+inputbar { children: [ prompt, entry ]; padding: 10px; spacing: 12px; }
+prompt { text-color: #d0bcff; }
+entry { placeholder: "Type to filter…"; placeholder-color: #cac4d0; padding: 1px 0px 0px 0px; }
+button-toggle {
+    action: "kb-custom-1";
+    content: "";
+    expand: false;
+    width: 42px;
+    height: 26px;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: 0.5;
+    cursor: pointer;
+}
+message { padding: 0px 10px; }
+textbox { text-color: #cac4d0; }
+listview { lines: 9; fixed-height: false; dynamic: true; scrollbar: false; cycle: false; }
+element { padding: 10px; border-radius: 12px; }
+element selected.normal { background-color: #d0bcff; text-color: #381e72; }
+element selected.active { background-color: #d0bcff; text-color: #381e72; }
+element selected.urgent { background-color: #d0bcff; text-color: #381e72; }
+element-text { background-color: inherit; text-color: inherit; }

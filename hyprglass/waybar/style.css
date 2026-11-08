@@ -1,0 +1,61 @@
+@define-color glass rgba(20, 18, 24, 0.78);
+@define-color on_surface #e6e0e9;
+@define-color on_variant #cac4d0;
+@define-color primary #d0bcff;
+@define-color on_primary #381e72;
+@define-color outline #49454f;
+* {
+    font-family: "Adwaita Sans", "Noto Sans", "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+window#waybar { background: transparent; color: @on_surface; }
+#clock, #custom-date, #workspaces, #status, #resources {
+    background: @glass;
+    border-radius: 16px;
+}
+#custom-assistant, #custom-panel, #custom-lock {
+    background: @glass;
+    color: @primary;
+    min-width: 29px;
+    border-radius: 14px;
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 14px;
+    margin: 0 3px 0 0;
+    padding: 0 1px;
+}
+#custom-panel { margin: 0 0 0 3px; font-size: 14px; }
+#clock, #custom-date { padding: 0 12px; margin-right: 3px; font-weight: 600; }
+#custom-date { font-size: 13px; }
+#workspaces { padding: 0 3px; }
+#workspaces button {
+    color: @on_variant;
+    background: transparent;
+    min-width: 26px;
+    min-height: 21px;
+    margin: 4px 2px;
+    padding: 0 2px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+#workspaces button:hover { background: rgba(208,188,255,0.12); }
+#workspaces button.active { color: @on_primary; background: @primary; min-width: 30px; }
+#workspaces button.urgent { color: #601410; background: #ffb4ab; }
+#status { padding: 0 7px; }
+#bluetooth, #network, #battery { color: @on_surface; font-size: 14px; padding: 0 7px; }
+#network { font-family: "JetBrainsMono Nerd Font Propo"; }
+#bluetooth.off, #bluetooth.disabled, #network.disabled { color: @outline; }
+#network.disconnected { color: @on_variant; }
+#bluetooth.connected, #battery.charging { color: @primary; }
+#battery.warning { color: #ffd8a8; }
+#battery.critical { color: #ffb4ab; }
+tooltip { color: @on_surface; background: #211f26; border: 1px solid @outline; border-radius: 12px; }
+tooltip label { font-size: 13px; padding: 3px 5px; }
+
+#resources { padding: 0 7px; margin-right: 3px; }
+#cpu, #memory, #disk { padding: 0 6px; font-size: 13px; }

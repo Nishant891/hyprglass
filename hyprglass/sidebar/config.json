@@ -1,0 +1,112 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "ignore-gtk-theme": true,
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "cssPriority": "user",
+  "control-center-width": 308,
+  "control-center-height": -1,
+  "control-center-margin-top": 3,
+  "control-center-margin-bottom": 4,
+  "control-center-margin-right": 0,
+  "control-center-margin-left": 0,
+  "notification-window-width": 340,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "notification-grouping": false,
+  "relative-timestamps": true,
+  "image-visibility": "when-available",
+  "timeout": 8,
+  "timeout-low": 4,
+  "timeout-critical": 0,
+  "transition-time": 200,
+  "fit-to-screen": true,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "text-empty": "No notifications",
+  "keyboard-shortcuts": true,
+  "widgets": [
+    "buttons-grid",
+    "volume",
+    "backlight",
+    "mpris",
+    "title#clear",
+    "notifications",
+    "todo"
+  ],
+  "widget-config": {
+    "title#clear": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear"
+    },
+    "notifications": {
+      "vexpand": false
+    },
+    "volume": {
+      "label": "\udb81\udd7e",
+      "show-per-app": false
+    },
+    "backlight": {
+      "label": "\udb80\udce0",
+      "subsystem": "backlight"
+    },
+    "mpris": {
+      "blacklist": [],
+      "autohide": true,
+      "show-album-art": "always",
+      "loop-carousel": false
+    },
+    "buttons-grid": {
+      "buttons-per-row": 3,
+      "actions": [
+        {
+          "label": "Wi-Fi",
+          "type": "toggle",
+          "active": true,
+          "command": "~/.config/hypr/bin/hypr-glass quicksettings set wifi",
+          "update-command": "~/.config/hypr/bin/hypr-glass quicksettings get wifi"
+        },
+        {
+          "label": "Bluetooth",
+          "type": "toggle",
+          "active": false,
+          "command": "~/.config/hypr/bin/hypr-glass quicksettings set bluetooth",
+          "update-command": "~/.config/hypr/bin/hypr-glass quicksettings get bluetooth"
+        },
+        {
+          "label": "Airplane",
+          "type": "toggle",
+          "active": false,
+          "command": "~/.config/hypr/bin/hypr-glass quicksettings set airplane",
+          "update-command": "~/.config/hypr/bin/hypr-glass quicksettings get airplane"
+        },
+        {
+          "label": "App dark",
+          "type": "toggle",
+          "active": false,
+          "command": "~/.config/hypr/bin/hypr-glass quicksettings set dark",
+          "update-command": "~/.config/hypr/bin/hypr-glass quicksettings get dark"
+        },
+        {
+          "label": "DND",
+          "type": "toggle",
+          "active": false,
+          "command": "~/.config/hypr/bin/hypr-glass quicksettings set dnd",
+          "update-command": "~/.config/hypr/bin/hypr-glass quicksettings get dnd"
+        },
+        {
+          "label": "Record",
+          "type": "toggle",
+          "active": false,
+          "command": "~/.config/hypr/bin/hypr-glass record toggle",
+          "update-command": "~/.config/hypr/bin/hypr-glass record status"
+        }
+      ]
+    }
+  },
+  "layer-shell-cover-screen": false
+}

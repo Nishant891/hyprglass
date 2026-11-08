@@ -1,0 +1,5 @@
+@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");
+@define-color theme_selected_bg_color #4f378b;
+@define-color theme_selected_fg_color #eaddff;
+@define-color theme_bg_color #141218;
+@define-color theme_fg_color #e6e0e9;

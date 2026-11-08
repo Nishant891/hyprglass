@@ -1,0 +1,11 @@
+/data/
+/tools/
+/local.lua
+/local.json
+/.build/
+__pycache__/
+*.py[cod]
+*.log
+*.before-hypr
+/.audit/
+.DS_Store

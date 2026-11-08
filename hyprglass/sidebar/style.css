@@ -1,0 +1,702 @@
+@define-color bg            rgba(20, 18, 24, 0.75);
+@define-color surface       #141218;
+@define-color s_low         #1d1b20;
+@define-color s_mid         #211f26;
+@define-color s_high        #2b2930;
+@define-color s_highest     #36343b;
+@define-color on_surface    #e6e0e9;
+@define-color on_variant    #cac4d0;
+@define-color outline       #49454f;
+@define-color primary       #d0bcff;
+@define-color on_primary    #381e72;
+@define-color p_container   #4f378b;
+@define-color on_p_cont     #eaddff;
+@define-color error_cont    #f2b8b5;
+@define-color on_error_cont #601410;
+
+:root {
+	--notification-icon-size: 20px;
+	--notification-app-icon-size: 12px;
+	--font-size-summary: 13px;
+	--font-size-body: 13px;
+	--border: none;
+	--notification-shadow: none;
+	--mpris-album-art-icon-size: 64px;
+	--mpris-album-art-shadow: none;
+}
+
+@define-color tile_off      #232028;
+@define-color tile_on       #4a4157;
+
+* {
+	font-family: "Adwaita Sans", "Noto Sans", "JetBrainsMono Nerd Font";
+	font-size: 13px;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+.blank-window {
+	background: transparent;
+}
+
+.control-center {
+	background: @bg;
+	color: @on_surface;
+	border: 1px solid @outline;
+	border-radius: 28px;
+	padding: 14px 14px 18px 14px;
+	margin: 0;
+}
+
+.control-center .widget:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.widget-title {
+	color: @on_surface;
+	background: transparent;
+	font-size: 13px;
+	font-weight: 700;
+	padding: 4px 8px 8px 8px;
+}
+
+.widget-title > button {
+	color: @on_primary;
+	background: @primary;
+	font-size: 13px;
+	font-weight: 600;
+	margin: 0 2px 8px 0;
+	padding: 8px 20px;
+	border: none;
+	border-radius: 20px;
+}
+
+.widget-title > button:hover {
+	background: @on_p_cont;
+}
+
+.widget-title > button:active {
+	background: @p_container;
+	color: @on_p_cont;
+}
+
+.widget-buttons-grid {
+	background: transparent;
+	padding: 0;
+	margin: 0;
+}
+
+.widget-buttons-grid flowboxchild,
+.widget-buttons-grid flowboxchild:hover,
+.widget-buttons-grid flowboxchild:focus,
+.widget-buttons-grid flowboxchild:active,
+.widget-buttons-grid flowboxchild:selected {
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	border: none;
+	outline: none;
+	box-shadow: none;
+}
+
+.widget-buttons-grid flowboxchild > button {
+	color: @on_variant;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center 11px, top center;
+	background-size: 22px 22px, 44px 44px;
+	font-size: 13px;
+	font-weight: 500;
+	min-width: 76px;
+	min-height: 14px;
+	margin: 3px 2px;
+	padding: 50px 0 4px;
+	border: none;
+	border-radius: 0;
+	outline: none;
+}
+
+.widget-buttons-grid flowboxchild > button label {
+	padding: 0;
+	margin: 0;
+}
+
+.widget-buttons-grid flowboxchild:nth-child(1) > button {
+	background-image: url("icons/wifi-off.svg"), radial-gradient(circle closest-side, @tile_off 99%, transparent 100%);
+}
+.widget-buttons-grid flowboxchild:nth-child(1) > button.toggle:checked {
+	background-image: url("icons/wifi-on.svg"), radial-gradient(circle closest-side, @tile_on 99%, transparent 100%);
+}
+.widget-buttons-grid flowboxchild:nth-child(2) > button {
+	background-image: url("icons/bluetooth-off.svg"), radial-gradient(circle closest-side, @tile_off 99%, transparent 100%);
+}
+.widget-buttons-grid flowboxchild:nth-child(2) > button.toggle:checked {
+	background-image: url("icons/bluetooth-on.svg"), radial-gradient(circle closest-side, @tile_on 99%, transparent 100%);
+}
+.widget-buttons-grid flowboxchild:nth-child(3) > button {
+	background-image: url("icons/airplane-off.svg"), radial-gradient(circle closest-side, @tile_off 99%, transparent 100%);
+}
+.widget-buttons-grid flowboxchild:nth-child(3) > button.toggle:checked {
+	background-image: url("icons/airplane-on.svg"), radial-gradient(circle closest-side, @tile_on 99%, transparent 100%);
+}
+.widget-buttons-grid flowboxchild:nth-child(4) > button {
+	background-image: url("icons/dark-off.svg"), radial-gradient(circle closest-side, @tile_off 99%, transparent 100%);
+}
+.widget-buttons-grid flowboxchild:nth-child(4) > button.toggle:checked {
+	background-image: url("icons/dark-on.svg"), radial-gradient(circle closest-side, @tile_on 99%, transparent 100%);
+}
+.widget-buttons-grid flowboxchild:nth-child(5) > button {
+	background-image: url("icons/dnd-off.svg"), radial-gradient(circle closest-side, @tile_off 99%, transparent 100%);
+}
+.widget-buttons-grid flowboxchild:nth-child(5) > button.toggle:checked {
+	background-image: url("icons/dnd-on.svg"), radial-gradient(circle closest-side, @tile_on 99%, transparent 100%);
+}
+
+.widget-buttons-grid flowboxchild > button.toggle:checked {
+	color: @on_surface;
+}
+
+.widget-volume,
+.widget-backlight,
+.widget-slider {
+	color: @on_surface;
+	background: rgba(29, 27, 32, 0.70);
+	padding: 10px 16px;
+	border-radius: 20px;
+	font-size: 13px;
+}
+
+.widget-volume label,
+.widget-backlight label,
+.widget-slider label {
+	color: @on_variant;
+	font-size: 13px;
+	padding: 0;
+	margin: 0 12px 0 0;
+	min-width: 20px;
+	min-height: 22px;
+}
+
+.widget-volume box,
+.widget-backlight box,
+.widget-slider box {
+	min-height: 30px;
+}
+
+.widget-volume scale,
+.widget-backlight scale,
+.widget-slider scale {
+	margin: 0;
+	padding: 0;
+	
+	min-height: 22px;
+}
+
+.widget-volume scale trough,
+.widget-backlight scale trough,
+.widget-slider scale trough {
+	background: @s_highest;
+	border: none;
+	border-radius: 4px;
+	min-height: 8px;
+	min-width: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.widget-volume scale highlight,
+.widget-backlight scale highlight,
+.widget-slider scale highlight {
+	background: @primary;
+	border: none;
+	border-radius: 4px;
+	min-height: 8px;
+	min-width: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.widget-volume scale slider,
+.widget-backlight scale slider,
+.widget-slider scale slider {
+	background: @primary;
+	border: none;
+	border-radius: 50%;
+	min-width: 14px;
+	min-height: 14px;
+	padding: 0;
+	margin: -3px -7px;
+}
+
+.per-app-volume {
+	background: @s_mid;
+	color: @on_variant;
+	padding: 6px 12px;
+	margin: 6px 0 0 0;
+	border-radius: 16px;
+}
+
+.widget-mpris {
+	background: rgba(29, 27, 32, 0.70);
+	color: @on_surface;
+	padding: 6px;
+	border-radius: 20px;
+}
+
+.widget-mpris .widget-mpris-player {
+	background: transparent;
+	padding: 0;
+	margin: 0;
+	box-shadow: none;
+}
+
+.widget-mpris .widget-mpris-player .mpris-background {
+	opacity: 0;
+	filter: none;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay {
+	background: transparent;
+	padding: 6px;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-album-art {
+	border-radius: 10px;
+	box-shadow: none;
+	-gtk-icon-size: 64px;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-title {
+	color: @on_surface;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-subtitle {
+	color: @on_variant;
+	font-size: 13px;
+}
+
+.widget-mpris button {
+	color: @on_surface;
+	background: transparent;
+	border: none;
+	border-radius: 12px;
+	min-width: 24px;
+	min-height: 24px;
+	padding: 4px;
+}
+
+.widget-mpris button:hover {
+	background: @s_high;
+}
+
+.widget-mpris button:disabled {
+	color: @outline;
+	opacity: 0.35;
+	background: transparent;
+}
+
+.notification-group {
+	background: transparent;
+	margin: 0;
+	padding: 0;
+}
+
+.notification-group-headers {
+	color: @on_variant;
+	font-size: 13px;
+	font-weight: 600;
+	padding: 2px 10px;
+}
+
+.notification-group-icon {
+	color: @on_variant;
+}
+
+.notification-row {
+	background: transparent;
+	outline: none;
+	padding: 0;
+	margin: 0;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+	background: transparent;
+}
+
+.notification {
+	background: transparent;
+	padding: 0;
+	margin: 4px 0;
+	border-radius: 24px;
+}
+
+.notification-background {
+	background: rgba(33, 31, 38, 0.85);
+	border: none;
+	border-radius: 24px;
+	margin: 4px 0;
+	padding: 0;
+}
+
+.notification-background:hover {
+	background: @s_high;
+}
+
+.notification-content {
+	background: transparent;
+	color: @on_surface;
+	padding: 7px 10px;
+	border-radius: 24px;
+}
+
+.notification-default-action {
+	background: transparent;
+	border: none;
+	border-radius: 24px;
+	padding: 0;
+	margin: 0;
+}
+
+.notification-default-action:hover {
+	background: transparent;
+}
+
+.summary {
+	color: @on_surface;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.time {
+	color: @on_variant;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.body {
+	color: @on_variant;
+	font-size: 13px;
+}
+
+.body-image {
+	border-radius: 16px;
+	margin-top: 8px;
+}
+
+.image,
+.app-icon {
+	border-radius: 14px;
+	margin-right: 10px;
+}
+
+.close-button {
+	color: @on_variant;
+	background: transparent;
+	font-size: 13px;
+	min-width: 26px;
+	min-height: 26px;
+	margin: 8px;
+	padding: 0;
+	border: none;
+	border-radius: 50%;
+}
+
+.close-button:hover {
+	background: @s_highest;
+	color: @on_surface;
+}
+
+.notification-action {
+	color: @on_p_cont;
+	background: @p_container;
+	font-size: 13px;
+	font-weight: 600;
+	margin: 0 8px 12px 8px;
+	padding: 8px 18px;
+	border: none;
+	border-radius: 20px;
+}
+
+.notification-action:hover {
+	background: @primary;
+	color: @on_primary;
+}
+
+.inline-reply {
+	margin-top: 8px;
+}
+
+.inline-reply-entry {
+	background: @s_high;
+	color: @on_surface;
+	caret-color: @on_surface;
+	border: none;
+	border-radius: 18px;
+	padding: 8px 14px;
+}
+
+.inline-reply-button {
+	color: @on_p_cont;
+	background: @p_container;
+	border: none;
+	border-radius: 18px;
+	margin-left: 8px;
+	padding: 8px 16px;
+}
+
+.notification-row.low .notification-background,
+.low .notification-background {
+	background: @s_low;
+}
+
+.notification-row.critical .notification-background,
+.critical .notification-background {
+	background: @error_cont;
+}
+
+.notification-row.critical .notification-content,
+.critical .notification-content {
+	color: @on_error_cont;
+}
+
+.notification-row.critical .summary,
+.notification-row.critical .body,
+.notification-row.critical .time,
+.critical .summary,
+.critical .body,
+.critical .time {
+	color: @on_error_cont;
+}
+
+.notification-row.critical .close-button,
+.critical .close-button {
+	color: @on_error_cont;
+}
+
+.notification-row.critical .close-button:hover,
+.critical .close-button:hover {
+	background: rgba(96, 20, 16, 0.18);
+}
+
+.floating-notifications {
+	background: transparent;
+}
+
+.floating-notifications .notification-background {
+	background: @bg;
+	border: none;
+	border-radius: 16px;
+	margin: 8px;
+}
+
+.floating-notifications .notification-background:hover {
+	background: @s_mid;
+}
+
+.floating-notifications.critical .notification-background,
+.floating-notifications .critical .notification-background {
+	background: @error_cont;
+	border: none;
+}
+
+.widget-label {
+	color: @on_surface;
+	font-size: 13px;
+	padding: 4px 8px;
+}
+
+.widget-inhibitors {
+	color: @on_surface;
+	background: @s_low;
+	padding: 12px 16px;
+	border-radius: 20px;
+}
+
+.widget-inhibitors > button {
+	color: @on_p_cont;
+	background: @p_container;
+	border: none;
+	border-radius: 20px;
+	padding: 6px 16px;
+}
+
+.widget-menubar > box > button {
+	color: @on_variant;
+	background: @s_low;
+	border: none;
+	border-radius: 20px;
+	margin: 4px;
+	padding: 10px 16px;
+}
+
+scrollbar,
+scrollbar trough {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	min-width: 4px;
+	min-height: 0;
+	padding: 0;
+	margin: 0;
+}
+
+scrollbar slider {
+	background: @primary;
+	border: none;
+	border-radius: 2px;
+	min-width: 4px;
+	min-height: 28px;
+	padding: 0;
+	margin: 0;
+}
+
+scrollbar slider:hover,
+scrollbar slider:active {
+	background: @primary;
+}
+
+progressbar,
+progressbar trough {
+	background: @s_highest;
+	border: none;
+	border-radius: 8px;
+}
+
+progressbar progress {
+	background: @primary;
+	border-radius: 8px;
+}
+
+.notification-row .notification-background {
+	padding: 0;
+	margin: 3px 0;
+	border: none;
+	border-radius: 16px;
+}
+
+.notification-row .notification-background .notification {
+	background: transparent;
+	border: none;
+	border-radius: 16px;
+	box-shadow: none;
+	margin: 0;
+}
+
+.notification-row .notification-background .notification .notification-default-action {
+	padding: 0;
+	border: none;
+	border-radius: 16px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content {
+	padding: 7px 10px;
+	border-radius: 16px;
+}
+
+.notification-row .notification-background .notification .notification-alt-actions {
+	padding: 0 6px 6px;
+	background: transparent;
+}
+
+.notification-row .notification-background .notification .notification-action {
+	margin: 0 3px;
+	padding: 0;
+	background: transparent;
+}
+
+.notification-row .notification-background .notification .notification-action > button {
+	background: @p_container;
+	color: @on_p_cont;
+	border: none;
+	border-radius: 12px;
+	min-height: 0;
+	padding: 4px 12px;
+	font-size: 13px;
+}
+
+.notification-row .notification-background .notification .notification-action > button:hover {
+	background: @primary;
+	color: @on_primary;
+}
+
+.control-center scrolledwindow,
+.control-center viewport,
+.control-center .control-center-list {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+.floating-notifications .notification-row .notification-background {
+	margin: 6px;
+}
+
+.widget-buttons-grid flowboxchild:nth-child(6) > button {
+    background-image: url("icons/record-off.svg"), radial-gradient(circle closest-side, @tile_off 99%, transparent 100%);
+}
+.widget-buttons-grid flowboxchild:nth-child(6) > button.toggle:checked {
+    background-image: url("icons/record-on.svg"), radial-gradient(circle closest-side, @tile_on 99%, transparent 100%);
+}
+.control-center .control-center-list-placeholder image {
+    -gtk-icon-size: 20px;
+    min-width: 20px;
+    min-height: 20px;
+}
+.control-center .control-center-list-placeholder { padding: 6px; opacity: 1; }
+
+.control-center, .floating-notifications .notification-background { backdrop-filter: blur(16px); }
+
+.control-center .control-center-list-placeholder image {
+    transform: scale(0.208333);
+    margin: -38px 0;
+}
+.control-center scrollbar, .floating-notifications scrollbar {
+    opacity: 0; min-width: 0; min-height: 0;
+}
+.control-center .widget:not(:last-child) { margin-bottom: 6px; }
+.widget-buttons-grid flowboxchild > button {
+    background-size: 20px 20px, 40px 40px;
+    background-position: center 10px, top center;
+    padding: 44px 0 3px;
+    font-size: 13px;
+}
+.widget-volume, .widget-backlight { padding: 6px 12px; }
+.widget-volume label, .widget-backlight label { font-family: "JetBrainsMono Nerd Font Propo"; font-size: 14px; }
+.widget-volume row, .widget-backlight row { min-height: 24px; }
+.widget-title { padding: 2px 6px; font-size: 13px; }
+.widget-title > button { margin: 0; padding: 3px 10px; font-size: 13px; }
+:root { --mpris-album-art-icon-size: 48px; --font-size-summary: 13px; --font-size-body: 13px; }
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-album-art { -gtk-icon-size: 48px; }
+.widget-notifications { min-height: 120px; }
+.widget-todo { background: rgba(14,12,18,0.88); border-radius: 18px; padding: 9px; }
+.widget-todo .todo-title { font-size: 13px; font-weight: 600; }
+.widget-todo .todo-add { border: none; border-radius: 10px; padding: 1px 7px; min-width: 16px; min-height: 22px; background: @p_container; color: @on_p_cont; }
+.widget-todo checkbutton { padding: 2px 0; }
+.widget-todo checkbutton label { font-size: 13px; }
+.widget-todo checkbutton check {
+    min-width: 14px; min-height: 14px; border-radius: 5px;
+    background: transparent; border: 1px solid @primary; color: @primary;
+    -gtk-icon-source: none;
+}
+.widget-todo checkbutton:checked check {
+    background: @primary; border-color: @primary; color: @on_primary;
+    -gtk-icon-source: -gtk-icontheme("object-select-symbolic");
+}
+.widget-todo checkbutton:checked { color: @on_variant; }
+.widget-todo entry { min-height: 25px; font-size: 13px; border-radius: 10px; }
+.widget-todo .todo-empty { color: @on_variant; font-size: 13px; }
+.widget-todo .todo-error { color: #ffb4ab; font-size: 13px; }
+.widget-todo .todo-delete {
+    min-width: 24px;
+    min-height: 24px;
+    padding: 4px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: @on_variant;
+}
+.widget-todo .todo-delete:hover { background: rgba(255,180,171,0.15); color: #ffb4ab; }
+.widget-todo .todo-delete:focus-visible { outline: 2px solid @primary; outline-offset: 1px; }

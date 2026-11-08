@@ -1,0 +1,23 @@
+theme = Catppuccin Mocha
+font-family = "JetBrains Mono"
+font-style = Medium
+font-size = 16
+minimum-contrast = 4.5
+background-opacity = 1
+background-blur-radius = 20
+gtk-titlebar = false
+
+window-decoration = none
+maximize = true
+
+window-padding-x = 10
+window-padding-y = 8
+window-padding-balance = true
+
+copy-on-select = clipboard
+
+right-click-action = paste
+
+confirm-close-surface = false
+
+gtk-custom-css = ~/.config/hypr/hyprglass/terminal/ghostty/glass.css

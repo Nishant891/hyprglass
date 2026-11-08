@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=HyprViolet
+Type=X-GNOME-Metatheme
+Comment=Material violet desktop theme
+[X-GNOME-Metatheme]
+GtkTheme=HyprViolet

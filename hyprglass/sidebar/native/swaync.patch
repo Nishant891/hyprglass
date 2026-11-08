@@ -1,0 +1,64 @@
+diff --git a/src/controlCenter/controlCenter.vala b/src/controlCenter/controlCenter.vala
+index 7c2480e..360cb72 100644
+--- a/src/controlCenter/controlCenter.vala
++++ b/src/controlCenter/controlCenter.vala
+@@ -135,6 +135,9 @@ namespace SwayNotificationCenter {
+         }
+ 
+         private void key_released_event_cb (uint keyval, uint keycode, Gdk.ModifierType state) {
++            for (Gtk.Widget? focus = get_focus (); focus != null; focus = focus.get_parent ()) {
++                if (focus is Widgets.Todo && keyval != Gdk.Key.Escape) return;
++            }
+             if (this.get_focus () is Gtk.Entry) {
+                 switch (Gdk.keyval_name (keyval)) {
+                     case "Escape" :
+@@ -152,6 +155,9 @@ namespace SwayNotificationCenter {
+         }
+ 
+         private bool key_press_event_cb (uint keyval, uint keycode, Gdk.ModifierType state) {
++            for (Gtk.Widget? focus = get_focus (); focus != null; focus = focus.get_parent ()) {
++                if (focus is Widgets.Todo && keyval != Gdk.Key.Escape) return false;
++            }
+             if (get_focus () is Gtk.Editable) {
+                 return false;
+             }
+diff --git a/src/controlCenter/widgets/factory.vala b/src/controlCenter/widgets/factory.vala
+index 7f4b9d9..b9d1007 100644
+--- a/src/controlCenter/widgets/factory.vala
++++ b/src/controlCenter/widgets/factory.vala
+@@ -12,6 +12,9 @@ namespace SwayNotificationCenter.Widgets {
+         }
+         BaseWidget widget;
+         switch (key) {
++            case "todo":
++                widget = new Todo (suffix);
++                break;
+             case "notifications" :
+                 is_notifications = true;
+                 message ("Loading widget: widget-notifications");
+diff --git a/src/controlCenter/widgets/notifications/notifications.vala b/src/controlCenter/widgets/notifications/notifications.vala
+index 5057495..1484a5b 100644
+--- a/src/controlCenter/widgets/notifications/notifications.vala
++++ b/src/controlCenter/widgets/notifications/notifications.vala
+@@ -45,6 +45,9 @@ namespace SwayNotificationCenter.Widgets {
+         public Notifications () {
+             base ("");
+ 
++            scrolled_window.set_min_content_height (120);
++            scrolled_window.set_max_content_height (120);
++            scrolled_window.set_propagate_natural_height (false);
+             list_box_controller = new IterListBoxController (list_box);
+ 
+             notify["expanded-group"].connect (expanded_changed);
+diff --git a/src/meson.build b/src/meson.build
+index 7b9700f..96d5595 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -23,6 +23,7 @@ constants = configure_file(
+ )
+ 
+ widget_sources = [
++  'controlCenter/widgets/todo.vala',
+   # Helpers
+   'controlCenter/widgets/baseWidget.vala',
+   'controlCenter/widgets/factory.vala',
