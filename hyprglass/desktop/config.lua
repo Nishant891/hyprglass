@@ -153,6 +153,7 @@ hl.config({
     misc = {
         force_default_wallpaper = 0,
         disable_hyprland_logo   = true,
+        disable_splash_rendering = true,
     },
 })
 
@@ -258,6 +259,12 @@ hl.window_rule({
     immediate  = true,
 })
 
+hl.window_rule({
+    name = "files-readable-glass",
+    match = { class = "^org[.]gnome[.]Nautilus$" },
+    opacity = "0.97 override 0.92 override",
+})
+
 hl.config({
     xwayland = {
         force_zero_scaling = true,
@@ -287,7 +294,7 @@ hl.window_rule({
     no_focus = true,
 })
 
-for _, namespace in ipairs({ "wofi", "rofi", "hypr-assistant", "hypr-calendar", "hypr-todo", "hypr-wallpapers", "swaync-notification-window" }) do
+for _, namespace in ipairs({ "wofi", "rofi", "hypr-assistant", "hypr-calendar", "hypr-todo", "hypr-wallpapers", "hypr-weather", "swaync-notification-window" }) do
     hl.layer_rule({ name = namespace .. "-glass", match = { namespace = "^" .. namespace .. "$" },
         blur = true, ignore_alpha = 0.05, xray = false })
 end

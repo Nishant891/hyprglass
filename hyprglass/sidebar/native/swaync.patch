@@ -50,6 +50,18 @@ index 5057495..1484a5b 100644
              list_box_controller = new IterListBoxController (list_box);
  
              notify["expanded-group"].connect (expanded_changed);
+diff --git a/src/notification/notification.vala b/src/notification/notification.vala
+--- a/src/notification/notification.vala
++++ b/src/notification/notification.vala
+@@ -735,7 +735,7 @@ namespace SwayNotificationCenter {
+                     timeout = timeout_critical_delay * 1000;
+                     break;
+             }
+-            uint ms = param.expire_timeout > 0 ? param.expire_timeout : timeout;
++            uint ms = timeout;
+             if (ms <= 0) {
+                 return;
+             }
 diff --git a/src/meson.build b/src/meson.build
 index 7b9700f..96d5595 100644
 --- a/src/meson.build

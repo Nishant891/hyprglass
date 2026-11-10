@@ -24,6 +24,7 @@ gi.require_version('Gtk4LayerShell', '1.0')
 from gi.repository import Gdk, Gio, GLib, Gtk, Gtk4LayerShell as Layer
 from hyprglass.assistant.client import local_request
 from hyprglass.wallpapers.picker import WallpaperPicker
+from hyprglass.assistant.weather_widget import WeatherWidgets
 
 from hyprglass.paths import BASE
 
@@ -295,6 +296,11 @@ class Desktop(Gtk.Application):
         css.load_from_string(source)
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), css, Gtk.STYLE_PROVIDER_PRIORITY_USER)
         self.cc = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+        self.weather = WeatherWidgets(self, run_async)
+
+    def do_shutdown(self):
+        self.weather.close()
+        Gtk.Application.do_shutdown(self)
 
     def cc_call(self, name, args=None, required=False):
         def call():

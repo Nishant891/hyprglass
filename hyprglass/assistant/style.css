@@ -42,3 +42,14 @@ scrollbar slider { background: @primary; min-width: 3px; border-radius: 3px; }
     border: 2px solid @primary;
     box-shadow: 0 12px 36px rgba(0,0,0,0.4);
 }
+
+.weather-card {
+    background: rgba(20,18,24,0.76); border: 1px solid rgba(208,188,255,0.28);
+    border-radius: 18px; padding: 9px 12px;
+}
+.weather-icon { color: @primary; font-size: 27px; min-width: 28px; }
+.weather-city { color: @fg; font-size: 13px; font-weight: 600; }
+.weather-temperature { color: @primary; font-size: 15px; font-weight: 600; }
+.weather-details { color: @muted; font-size: 11px; }
+.weather-coordinates { color: @muted; font-size: 10px; }
+.weather-stale .weather-temperature { color: @muted; font-size: 12px; }

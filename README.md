@@ -185,6 +185,30 @@ Setup preserves the other fields when changing the terminal. If it cannot safely
 read a dynamic terminal expression, it stops and asks for a literal executable
 name. Edit settings and use Super+Shift+R to reload Hyprland.
 
+### App appearance, notifications, and weather
+
+Windows use 90% opacity when focused and 50% when unfocused, including newly
+installed apps. An app's own transparent surfaces can make it appear more
+transparent. Ghostty's preset uses an opaque background before the compositor
+applies these values. Firefox and other apps keep their own internal styling.
+
+Files uses the violet libadwaita theme through Super+E and a separate 97% focused,
+92% unfocused opacity rule. Its sidebar and content toolbars share native
+libadwaita spacing.
+
+Notification popups appear at the top right below Waybar for three seconds.
+Hovering pauses their timer. Normal notifications remain in the sidebar after
+their popup expires. DND suppresses popups until switched off in quick settings.
+
+The weather card below Waybar shows Kolkata, Celsius temperature, feels-like
+temperature, humidity, wind speed, coordinates, and a condition icon using
+[Open-Meteo](https://open-meteo.com/en/docs). It sits above the wallpaper and behind
+app windows. It refreshes every ten minutes. Failed refreshes retain the last
+reading marked stale; an initial failure shows Unavailable. The card measures the
+gap between the workspace tabs and resource indicators once per monitor layout,
+then keeps that position when Waybar labels change. Proportional positioning is
+used until accessibility bounds are available.
+
 ### Todo
 
 The sidebar `+` button opens task input. Enter saves a task. Each row has a

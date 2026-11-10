@@ -1,4 +1,4 @@
-@import url("resource:///org/gtk/libgtk/theme/Default/gtk-dark.css");
+@import url("resource:///org/gnome/Adwaita/styles/gtk.css");
 @define-color accent_color #d0bcff;
 @define-color accent_bg_color #4f378b;
 @define-color accent_fg_color #eaddff;
@@ -11,10 +11,46 @@
 @define-color sidebar_bg_color #211f26;
 @define-color sidebar_fg_color #e6e0e9;
 @define-color card_bg_color #2b2930;
-window, .nautilus-window { font-family: "Adwaita Sans", "Noto Sans"; }
-window.background { background: @window_bg_color; color: @window_fg_color; }
-headerbar { background: @headerbar_bg_color; color: @headerbar_fg_color; box-shadow: none; }
-.navigation-sidebar { background: @sidebar_bg_color; color: @sidebar_fg_color; }
-.navigation-sidebar row:selected { background: rgba(208,188,255,0.16); color: @accent_color; border-radius: 12px; }
-.nautilus-grid-view gridview child:selected, .nautilus-list-view listview row:selected { background: rgba(208,188,255,0.18); color: @window_fg_color; border-radius: 12px; }
+@define-color headerbar_backdrop_color #211f26;
+@define-color sidebar_backdrop_color #211f26;
+@define-color popover_bg_color #2b2930;
+@define-color popover_fg_color #e6e0e9;
+@define-color dialog_bg_color #211f26;
+@define-color dialog_fg_color #e6e0e9;
+@define-color shade_color rgba(0,0,0,0.2);
+@define-color borders rgba(208,188,255,0.14);
+
+:root {
+    --accent-color: @accent_color;
+    --accent-bg-color: @accent_bg_color;
+    --accent-fg-color: @accent_fg_color;
+    --window-bg-color: @window_bg_color;
+    --window-fg-color: @window_fg_color;
+    --view-bg-color: @view_bg_color;
+    --view-fg-color: @view_fg_color;
+    --headerbar-bg-color: @headerbar_bg_color;
+    --headerbar-backdrop-color: @headerbar_backdrop_color;
+    --headerbar-fg-color: @headerbar_fg_color;
+    --sidebar-bg-color: @sidebar_bg_color;
+    --sidebar-backdrop-color: @sidebar_backdrop_color;
+    --sidebar-fg-color: @sidebar_fg_color;
+    --card-bg-color: @card_bg_color;
+    --card-fg-color: @window_fg_color;
+    --popover-bg-color: @popover_bg_color;
+    --popover-fg-color: @popover_fg_color;
+    --dialog-bg-color: @dialog_bg_color;
+    --dialog-fg-color: @dialog_fg_color;
+}
+
+window { font-family: "Adwaita Sans", "Noto Sans"; }
+headerbar { min-height: 47px; box-shadow: none; }
+headerbar button { border-radius: 10px; }
+.nautilus-pathbar { background: rgba(208,188,255,0.06); border-radius: 12px; }
+.navigation-sidebar row { border-radius: 12px; margin: 2px 6px; }
+.navigation-sidebar row:selected { background: rgba(208,188,255,0.16); color: @accent_color; }
+.nautilus-grid-view, .nautilus-list-view { --accent-bg-color: @accent_bg_color; }
+.nautilus-grid-view gridview child:selected,
+.nautilus-list-view columnview > listview > row:selected {
+    background: rgba(208,188,255,0.18); color: @window_fg_color; border-radius: 12px;
+}
 button.suggested-action { background: @accent_bg_color; color: @accent_fg_color; }
