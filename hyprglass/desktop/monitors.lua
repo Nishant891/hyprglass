@@ -37,29 +37,8 @@ arrangeMonitors()
 hl.on("monitor.added", arrangeMonitors)
 hl.on("monitor.removed", arrangeMonitors)
 
-local lastAxis
-local function updateWorkspaceMotion()
-    local focused = hl.get_active_monitor()
-    if not focused then return end
-    local vertical = false
-    for _, other in ipairs(hl.get_monitors()) do
-        if other.id ~= focused.id and focused.y < other.y then
-            vertical = true
-        end
-    end
-    local axis = vertical and "vertical" or "horizontal"
-    if axis == lastAxis then return end
-    if lastAxis then
-        hl.gesture({ fingers = 3, direction = lastAxis, action = "unset" })
-    end
-    lastAxis = axis
-    hl.gesture({ fingers = 3, direction = axis, action = "workspace" })
-    for _, leaf in ipairs({ "workspaces", "workspacesIn", "workspacesOut" }) do
-        hl.animation({ leaf = leaf, enabled = true, speed = 3.5,
-            bezier = "easeOutQuint", style = vertical and "slidevert" or "slide" })
-    end
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+for _, leaf in ipairs({ "workspaces", "workspacesIn", "workspacesOut" }) do
+    hl.animation({ leaf = leaf, enabled = true, speed = 3.5,
+        bezier = "easeOutQuint", style = "slide" })
 end
-for _, event in ipairs({ "monitor.focused", "monitor.layout_changed", "monitor.added", "monitor.removed" }) do
-    hl.on(event, updateWorkspaceMotion)
-end
-updateWorkspaceMotion()

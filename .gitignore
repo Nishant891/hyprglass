@@ -9,3 +9,7 @@ __pycache__/
 *.before-hypr
 /.audit/
 .DS_Store
+/todo.txt
+/.aws/
+/.codex/
+/.agents/
