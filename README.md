@@ -4,6 +4,10 @@ A violet, translucent Hyprland desktop with Waybar, an app launcher, Wi-Fi and
 Bluetooth menus, a notification sidebar with Markdown tasks, weather, a calendar,
 a wallpaper picker, screen capture, and optional local AI.
 
+<a href="https://www.youtube.com/watch?v=9mchvfJQieU">
+  <img src="https://img.youtube.com/vi/9mchvfJQieU/maxresdefault.jpg" alt="Watch the video" width="600">
+</a>
+
 ## Install
 
 Use an Arch-based Linux system with a systemd user session. Automatic dependency
